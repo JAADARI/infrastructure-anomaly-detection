@@ -1,12 +1,17 @@
 # Infrastructure Anomaly Detection System
-The **Infrastructure Anomaly Detection System** combines **real-time streaming** and **batch processing** capabilities to detect **infrastructure anomalies** and generate **actionable recommendations**. Built on a modern **Python** stack.
-the system leverages **LangGraph** for **deterministic workflow orchestration**, enabling **multi-step processing pipelines** with clearly defined **state transitions**.
-**Instructor** provides **structured LLM outputs** with **automatic validation**, allowing the system to extract **type-safe recommendations**
-The core **anomaly detection engine** implements multiple **statistical** and **machine learning** strategies: **Z-score–based univariate outlier detection**, **scikit-learn’s Isolation Forest** for **multivariate anomaly detection**, and **PCA–Mahalanobis distance computation** to capture **metric correlations**.
-For **real-time** capabilities, the system integrates **Kafka** through **aiokafka**, an **asynchronous producer–consumer framework** enabling **high-throughput event streaming**.
-**batch processing mode** handles static **JSON datasets**.
-**Data validation** is enforced throughout via **Pydantic BaseModels**, ensuring **schema compliance**.
-**structured logging** provides **component-level observability** across **detection pipelines**, **LLM calls**, and **Kafka event processing**.
+
+- **Infrastructure Anomaly Detection System** combines **real-time streaming** and **batch processing** to detect **infrastructure anomalies** and generate **actionable recommendations**
+- Built on a modern **Python** stack
+- Uses **LangGraph** for **deterministic workflow orchestration**, enabling **multi-step processing pipelines** with clearly defined **state transitions**
+- **Instructor** provides **structured LLM outputs** with **automatic validation**, enabling extraction of **type-safe recommendations**
+- Core **anomaly detection engine** supports multiple **statistical** and **machine learning** techniques:
+  - **Z-score–based univariate outlier detection**
+  - **scikit-learn Isolation Forest** for **multivariate anomaly detection**
+  - **PCA–Mahalanobis distance computation** to capture **metric correlations**
+- **Real-time processing** integrates **Apache Kafka** via **aiokafka** for **high-throughput asynchronous event streaming**
+- **Batch processing mode** handles static **JSON datasets**
+- **Data validation** enforced using **Pydantic BaseModels** to ensure **schema compliance**
+- **Structured logging** provides **component-level observability** across **detection pipelines**, **LLM calls**, and **Kafka event processing**
 
 ## Table of Contents
 
@@ -358,5 +363,6 @@ strategy = DetectionStrategy.PCA_MAHALANOBIS
 This project is licensed under the MIT License - see LICENSE file for details.
 
 ---
+
 
 
