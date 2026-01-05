@@ -110,7 +110,7 @@ This system monitors infrastructure metrics (CPU, memory, latency, disk usage, e
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/infrastructure-anomaly-detection.git
+git clone https://github.com/JAADARI/infrastructure-anomaly-detection.git
 cd infrastructure-anomaly-detection
 ```
 
@@ -705,3 +705,4 @@ For issues, questions, or suggestions:
 - Validate your JSON input file structure
 
 Happy monitoring! 🚀
+
