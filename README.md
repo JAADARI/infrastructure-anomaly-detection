@@ -1,45 +1,20 @@
 ### 🚀 Infrastructure Anomaly Detection System
 
-- **Hybrid Processing Architecture**
-  - Combines **real-time streaming** and **batch processing** to detect **infrastructure anomalies**
-  - Generates **actionable, type-safe recommendations** for operational decision-making
+- **Stack**
+  - **Python**: Core language
+  - **LangGraph**: Workflow orchestration
+  - **Instructor**: wrapper for LLM providers for recommendations with **structured outputs** 
+  - **Pydantic**: Data validation and schema enforcement
+  - **scikit-learn**: Machine learning algorithms
+  - **Apache Kafka** + **aiokafka**: Real-time streaming
+  - **JSON**: Batch data format
 
-- **Modern Python-Based Stack**
-  - Built on a clean, modular **Python** architecture
-  - Designed for extensibility, reliability, and performance
-
-- **Deterministic Workflow Orchestration**
-  - Powered by **LangGraph**
-  - Enables **multi-step processing pipelines** with explicit **state transitions** and predictable execution
-
-- **LLM-Driven Intelligence**
-  - Uses **Instructor** for **structured LLM outputs** with **automatic validation**
-  - Ensures reliable extraction of **type-safe recommendations**
-
-- **Advanced Anomaly Detection Engine**
-  - Combines **statistical** and **machine learning** techniques:
-    - **Z-score–based univariate outlier detection**
-    - **Isolation Forest (scikit-learn)** for **multivariate anomaly detection**
-    - **PCA–Mahalanobis distance** to capture **metric correlations** and reduce false positives
-
-- **Real-Time Streaming Pipeline**
-  - Integrates **Apache Kafka** via **aiokafka**
-  - Supports **asynchronous producer–consumer patterns** and **high-throughput event streaming**
-
-- **Batch Processing & Historical Analysis**
-  - Processes static **JSON datasets**
-  - Suitable for **historical analysis**, **backfills**, and **offline evaluations**
-
-- **Robust Data Validation**
-  - Enforced end-to-end using **Pydantic BaseModels**
-  - Guarantees **schema compliance** across all data flows
-
-- **Observability & Diagnostics**
-  - Implements **structured logging**
-  - Provides **component-level observability** across:
-    - Detection pipelines
-    - LLM interactions
-    - Kafka event processing
+- **Design**
+  - **Hybrid architecture**: Real-time streaming + batch processing
+  - **Multi-step pipelines**: Deterministic workflow with state transitions
+  - **Anomaly detection engine**: Z-score, Isolation Forest, PCA-Mahalanobis
+  - **Observability**: Structured logging across pipelines and LLM calls
+  - **Data safety**: Type-safe recommendations via validated schemas
 
 ## Table of Contents
 
@@ -391,6 +366,7 @@ strategy = DetectionStrategy.PCA_MAHALANOBIS
 This project is licensed under the MIT License - see LICENSE file for details.
 
 ---
+
 
 
 
