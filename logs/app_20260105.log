@@ -1,131 +1,474 @@
-2026-01-05 12:34:38 - app.services.anomaly_detector.classic - INFO - [__init__:32] - Initialized ClassicAnomalyDetector with strategy: statistical
-2026-01-05 12:34:38 - app.services.llm.llm - INFO - [__init__:38] - Initialized OpenAIClient with model: gpt-4o
-2026-01-05 12:34:38 - app.services.workflow - INFO - [__init__:29] - Initialized InfraWorkflow with config: {'detector_type': 'classic', 'threshold': 4.0}
-2026-01-05 12:34:38 - app.services.kafka.consumer - INFO - [__init__:15] - Initialized AsyncEventConsumer for topic: infra-input, group: infra-anomaly-group
-2026-01-05 12:34:38 - app.services.kafka.producer - INFO - [__init__:16] - Initialized AsyncEventProducer for topic: infra-output
-2026-01-05 12:34:41 - app.services.kafka.consumer - INFO - [start:29] - Consumer started for infra-input
-2026-01-05 12:34:41 - app.services.kafka.producer - INFO - [start:27] - Producer started for infra-output
-2026-01-05 12:34:41 - __main__ - INFO - [stream_mode:80] - Started streaming mode: infra-input -> infra-output
-2026-01-05 12:35:26 - app.services.workflow - INFO - [process:128] - Processing 100 input records
-2026-01-05 12:35:26 - app.services.workflow - INFO - [_validate_and_parse:34] - Validating 100 input records
-2026-01-05 12:35:26 - app.services.workflow - INFO - [_validate_and_parse:38] - Successfully validated and parsed 100 records
-2026-01-05 12:35:26 - app.services.workflow - INFO - [_detect_anomalies_and_extract:47] - Starting anomaly detection
-2026-01-05 12:35:26 - app.services.anomaly_detector.classic - INFO - [detect:161] - Starting anomaly detection with strategy: statistical
-2026-01-05 12:35:26 - app.services.anomaly_detector.classic - INFO - [detect:188] - Detection complete: 2 anomalies found
-2026-01-05 12:35:26 - app.services.workflow - INFO - [_detect_anomalies_and_extract:52] - Detected 2 anomalies
-2026-01-05 12:35:27 - app.services.workflow - INFO - [_generate_recommendations:61] - Generating recommendations
-2026-01-05 12:35:27 - app.services.llm.llm - INFO - [generate_recommendations:92] - Generated 4 recommendations
-2026-01-05 12:35:27 - app.services.workflow - INFO - [_generate_recommendations:68] - Generated 4 recommendations
-2026-01-05 12:35:27 - app.services.workflow - INFO - [_final_report:77] - Generating final report
-2026-01-05 12:35:27 - app.services.workflow - INFO - [_final_report:95] - Final report generated successfully
-2026-01-05 12:36:26 - app.services.workflow - INFO - [process:128] - Processing 100 input records
-2026-01-05 12:36:26 - app.services.workflow - INFO - [_validate_and_parse:34] - Validating 100 input records
-2026-01-05 12:36:27 - app.services.workflow - INFO - [_validate_and_parse:38] - Successfully validated and parsed 100 records
-2026-01-05 12:36:27 - app.services.workflow - INFO - [_detect_anomalies_and_extract:47] - Starting anomaly detection
-2026-01-05 12:36:27 - app.services.anomaly_detector.classic - INFO - [detect:161] - Starting anomaly detection with strategy: statistical
-2026-01-05 12:36:27 - app.services.anomaly_detector.classic - INFO - [detect:188] - Detection complete: 1 anomalies found
-2026-01-05 12:36:27 - app.services.workflow - INFO - [_detect_anomalies_and_extract:52] - Detected 1 anomalies
-2026-01-05 12:36:27 - app.services.workflow - INFO - [_generate_recommendations:61] - Generating recommendations
-2026-01-05 12:36:27 - app.services.llm.llm - INFO - [generate_recommendations:92] - Generated 4 recommendations
-2026-01-05 12:36:27 - app.services.workflow - INFO - [_generate_recommendations:68] - Generated 4 recommendations
-2026-01-05 12:36:27 - app.services.workflow - INFO - [_final_report:77] - Generating final report
-2026-01-05 12:36:27 - app.services.workflow - INFO - [_final_report:95] - Final report generated successfully
-2026-01-05 12:37:27 - app.services.workflow - INFO - [process:128] - Processing 100 input records
-2026-01-05 12:37:27 - app.services.workflow - INFO - [_validate_and_parse:34] - Validating 100 input records
-2026-01-05 12:37:27 - app.services.workflow - INFO - [_validate_and_parse:38] - Successfully validated and parsed 100 records
-2026-01-05 12:37:27 - app.services.workflow - INFO - [_detect_anomalies_and_extract:47] - Starting anomaly detection
-2026-01-05 12:37:27 - app.services.anomaly_detector.classic - INFO - [detect:161] - Starting anomaly detection with strategy: statistical
-2026-01-05 12:37:27 - app.services.anomaly_detector.classic - INFO - [detect:188] - Detection complete: 2 anomalies found
-2026-01-05 12:37:27 - app.services.workflow - INFO - [_detect_anomalies_and_extract:52] - Detected 2 anomalies
-2026-01-05 12:37:27 - app.services.workflow - INFO - [_generate_recommendations:61] - Generating recommendations
-2026-01-05 12:37:27 - app.services.llm.llm - INFO - [generate_recommendations:92] - Generated 4 recommendations
-2026-01-05 12:37:27 - app.services.workflow - INFO - [_generate_recommendations:68] - Generated 4 recommendations
-2026-01-05 12:37:27 - app.services.workflow - INFO - [_final_report:77] - Generating final report
-2026-01-05 12:37:27 - app.services.workflow - INFO - [_final_report:95] - Final report generated successfully
-2026-01-05 12:38:27 - app.services.workflow - INFO - [process:128] - Processing 100 input records
-2026-01-05 12:38:27 - app.services.workflow - INFO - [_validate_and_parse:34] - Validating 100 input records
-2026-01-05 12:38:27 - app.services.workflow - INFO - [_validate_and_parse:38] - Successfully validated and parsed 100 records
-2026-01-05 12:38:27 - app.services.workflow - INFO - [_detect_anomalies_and_extract:47] - Starting anomaly detection
-2026-01-05 12:38:27 - app.services.anomaly_detector.classic - INFO - [detect:161] - Starting anomaly detection with strategy: statistical
-2026-01-05 12:38:27 - app.services.anomaly_detector.classic - INFO - [detect:188] - Detection complete: 1 anomalies found
-2026-01-05 12:38:27 - app.services.workflow - INFO - [_detect_anomalies_and_extract:52] - Detected 1 anomalies
-2026-01-05 12:38:27 - app.services.workflow - INFO - [_generate_recommendations:61] - Generating recommendations
-2026-01-05 12:38:27 - app.services.llm.llm - INFO - [generate_recommendations:92] - Generated 4 recommendations
-2026-01-05 12:38:27 - app.services.workflow - INFO - [_generate_recommendations:68] - Generated 4 recommendations
-2026-01-05 12:38:27 - app.services.workflow - INFO - [_final_report:77] - Generating final report
-2026-01-05 12:38:27 - app.services.workflow - INFO - [_final_report:95] - Final report generated successfully
-2026-01-05 12:39:27 - app.services.workflow - INFO - [process:128] - Processing 100 input records
-2026-01-05 12:39:27 - app.services.workflow - INFO - [_validate_and_parse:34] - Validating 100 input records
-2026-01-05 12:39:27 - app.services.workflow - INFO - [_validate_and_parse:38] - Successfully validated and parsed 100 records
-2026-01-05 12:39:27 - app.services.workflow - INFO - [_detect_anomalies_and_extract:47] - Starting anomaly detection
-2026-01-05 12:39:27 - app.services.anomaly_detector.classic - INFO - [detect:161] - Starting anomaly detection with strategy: statistical
-2026-01-05 12:39:27 - app.services.anomaly_detector.classic - INFO - [detect:188] - Detection complete: 2 anomalies found
-2026-01-05 12:39:27 - app.services.workflow - INFO - [_detect_anomalies_and_extract:52] - Detected 2 anomalies
-2026-01-05 12:39:27 - app.services.workflow - INFO - [_generate_recommendations:61] - Generating recommendations
-2026-01-05 12:39:27 - app.services.llm.llm - INFO - [generate_recommendations:92] - Generated 4 recommendations
-2026-01-05 12:39:27 - app.services.workflow - INFO - [_generate_recommendations:68] - Generated 4 recommendations
-2026-01-05 12:39:27 - app.services.workflow - INFO - [_final_report:77] - Generating final report
-2026-01-05 12:39:27 - app.services.workflow - INFO - [_final_report:95] - Final report generated successfully
-2026-01-05 12:40:27 - app.services.workflow - INFO - [process:128] - Processing 100 input records
-2026-01-05 12:40:27 - app.services.workflow - INFO - [_validate_and_parse:34] - Validating 100 input records
-2026-01-05 12:40:27 - app.services.workflow - INFO - [_validate_and_parse:38] - Successfully validated and parsed 100 records
-2026-01-05 12:40:27 - app.services.workflow - INFO - [_detect_anomalies_and_extract:47] - Starting anomaly detection
-2026-01-05 12:40:27 - app.services.anomaly_detector.classic - INFO - [detect:161] - Starting anomaly detection with strategy: statistical
-2026-01-05 12:40:27 - app.services.anomaly_detector.classic - INFO - [detect:188] - Detection complete: 2 anomalies found
-2026-01-05 12:40:27 - app.services.workflow - INFO - [_detect_anomalies_and_extract:52] - Detected 2 anomalies
-2026-01-05 12:40:27 - app.services.workflow - INFO - [_generate_recommendations:61] - Generating recommendations
-2026-01-05 12:40:27 - app.services.llm.llm - INFO - [generate_recommendations:92] - Generated 4 recommendations
-2026-01-05 12:40:27 - app.services.workflow - INFO - [_generate_recommendations:68] - Generated 4 recommendations
-2026-01-05 12:40:27 - app.services.workflow - INFO - [_final_report:77] - Generating final report
-2026-01-05 12:40:27 - app.services.workflow - INFO - [_final_report:95] - Final report generated successfully
-2026-01-05 12:41:27 - app.services.workflow - INFO - [process:128] - Processing 100 input records
-2026-01-05 12:41:27 - app.services.workflow - INFO - [_validate_and_parse:34] - Validating 100 input records
-2026-01-05 12:41:27 - app.services.workflow - INFO - [_validate_and_parse:38] - Successfully validated and parsed 100 records
-2026-01-05 12:41:27 - app.services.workflow - INFO - [_detect_anomalies_and_extract:47] - Starting anomaly detection
-2026-01-05 12:41:27 - app.services.anomaly_detector.classic - INFO - [detect:161] - Starting anomaly detection with strategy: statistical
-2026-01-05 12:41:27 - app.services.anomaly_detector.classic - INFO - [detect:188] - Detection complete: 1 anomalies found
-2026-01-05 12:41:27 - app.services.workflow - INFO - [_detect_anomalies_and_extract:52] - Detected 1 anomalies
-2026-01-05 12:41:27 - app.services.workflow - INFO - [_generate_recommendations:61] - Generating recommendations
-2026-01-05 12:41:27 - app.services.llm.llm - INFO - [generate_recommendations:92] - Generated 4 recommendations
-2026-01-05 12:41:27 - app.services.workflow - INFO - [_generate_recommendations:68] - Generated 4 recommendations
-2026-01-05 12:41:27 - app.services.workflow - INFO - [_final_report:77] - Generating final report
-2026-01-05 12:41:27 - app.services.workflow - INFO - [_final_report:95] - Final report generated successfully
-2026-01-05 12:42:14 - app.services.kafka.consumer - INFO - [stop:39] - Consumer stopped for infra-input
-2026-01-05 12:42:14 - app.services.kafka.consumer - INFO - [stop:39] - Consumer stopped for infra-input
-2026-01-05 12:42:14 - app.services.kafka.producer - INFO - [stop:37] - Producer stopped for infra-output
-2026-01-05 12:42:24 - app.services.anomaly_detector.classic - INFO - [__init__:32] - Initialized ClassicAnomalyDetector with strategy: statistical
-2026-01-05 12:42:24 - app.services.llm.llm - INFO - [__init__:38] - Initialized OpenAIClient with model: gpt-4o
-2026-01-05 12:42:24 - app.services.workflow - INFO - [__init__:29] - Initialized InfraWorkflow with config: {'detector_type': 'classic', 'threshold': 4.0}
-2026-01-05 12:42:24 - __main__ - INFO - [batch_mode:45] - Starting batch mode with input: None
-2026-01-05 12:42:24 - __main__ - ERROR - [batch_mode:68] - Error in batch mode: expected str, bytes or os.PathLike object, not NoneType
+2026-01-05 16:09:50 - app.services.anomaly_detector.classic - INFO - [__init__:32] - Initialized ClassicAnomalyDetector with strategy: statistical
+2026-01-05 16:09:50 - app.services.llm.llm - INFO - [__init__:30] - Initialized OpenAIClient with model: gpt-4o
+2026-01-05 16:09:50 - app.services.workflow - INFO - [__init__:29] - Initialized InfraWorkflow with config: {'detector_type': 'classic', 'threshold': 4.0}
+2026-01-05 16:09:50 - __main__ - INFO - [batch_mode:45] - Starting batch mode with input: /home/jaadari/Desktop/test_devoteam/rapport.json
+2026-01-05 16:09:50 - __main__ - INFO - [batch_mode:53] - Loaded 500 records from /home/jaadari/Desktop/test_devoteam/rapport.json
+2026-01-05 16:09:50 - app.services.workflow - INFO - [process:129] - Processing 500 input records
+2026-01-05 16:09:50 - app.services.workflow - INFO - [_validate_and_parse:34] - Validating 500 input records
+2026-01-05 16:09:50 - app.services.workflow - INFO - [_validate_and_parse:38] - Successfully validated and parsed 500 records
+2026-01-05 16:09:50 - app.services.workflow - INFO - [_detect_anomalies_and_extract:47] - Starting anomaly detection
+2026-01-05 16:09:50 - app.services.anomaly_detector.classic - INFO - [detect:161] - Starting anomaly detection with strategy: statistical
+2026-01-05 16:09:50 - app.services.anomaly_detector.classic - INFO - [detect:188] - Detection complete: 8 anomalies found
+2026-01-05 16:09:50 - app.services.workflow - INFO - [_detect_anomalies_and_extract:52] - Detected 8 anomalies
+2026-01-05 16:09:50 - app.services.workflow - INFO - [_generate_recommendations:61] - Generating recommendations
+2026-01-05 16:09:50 - app.services.llm.llm - INFO - [generate_recommendations:52] - Generating recommendations for 8 anomalies
+2026-01-05 16:09:58 - app.services.llm.llm - INFO - [generate_recommendations:71] - Generated 5 recommendations from LLM
+2026-01-05 16:09:58 - app.services.workflow - INFO - [_generate_recommendations:69] - Generated 5 recommendations
+2026-01-05 16:09:58 - app.services.workflow - INFO - [_final_report:78] - Generating final report
+2026-01-05 16:09:58 - app.services.workflow - INFO - [_final_report:96] - Final report generated successfully
+2026-01-05 16:09:58 - __main__ - INFO - [batch_mode:62] - Batch processing completed successfully
+2026-01-05 16:18:11 - app.services.anomaly_detector.classic - INFO - [__init__:32] - Initialized ClassicAnomalyDetector with strategy: statistical
+2026-01-05 16:18:11 - app.services.llm.llm - INFO - [__init__:23] - Initialized OpenAIClient with model: openrouter/mistralai/devstral-2512:free
+2026-01-05 16:18:11 - app.services.workflow - INFO - [__init__:29] - Initialized InfraWorkflow with config: {'detector_type': 'classic', 'threshold': 4.0}
+2026-01-05 16:18:11 - __main__ - INFO - [batch_mode:45] - Starting batch mode with input: /home/jaadari/Desktop/test_devoteam/rapport.json
+2026-01-05 16:18:11 - __main__ - INFO - [batch_mode:53] - Loaded 500 records from /home/jaadari/Desktop/test_devoteam/rapport.json
+2026-01-05 16:18:11 - app.services.workflow - INFO - [process:129] - Processing 500 input records
+2026-01-05 16:18:11 - app.services.workflow - INFO - [_validate_and_parse:34] - Validating 500 input records
+2026-01-05 16:18:11 - app.services.workflow - INFO - [_validate_and_parse:38] - Successfully validated and parsed 500 records
+2026-01-05 16:18:11 - app.services.workflow - INFO - [_detect_anomalies_and_extract:47] - Starting anomaly detection
+2026-01-05 16:18:11 - app.services.anomaly_detector.classic - INFO - [detect:161] - Starting anomaly detection with strategy: statistical
+2026-01-05 16:18:11 - app.services.anomaly_detector.classic - INFO - [detect:188] - Detection complete: 8 anomalies found
+2026-01-05 16:18:11 - app.services.workflow - INFO - [_detect_anomalies_and_extract:52] - Detected 8 anomalies
+2026-01-05 16:18:11 - app.services.workflow - INFO - [_generate_recommendations:61] - Generating recommendations
+2026-01-05 16:18:11 - app.services.llm.llm - INFO - [generate_recommendations:31] - Generating recommendations for 8 anomalies
+2026-01-05 16:18:17 - app.services.llm.llm - INFO - [generate_recommendations:50] - Generated 5 recommendations from LLM
+2026-01-05 16:18:17 - app.services.workflow - INFO - [_generate_recommendations:69] - Generated 5 recommendations
+2026-01-05 16:18:17 - app.services.workflow - INFO - [_final_report:78] - Generating final report
+2026-01-05 16:18:17 - app.services.workflow - INFO - [_final_report:96] - Final report generated successfully
+2026-01-05 16:18:17 - __main__ - INFO - [batch_mode:60] - Batch processing completed successfully
+2026-01-05 16:20:33 - app.services.anomaly_detector.classic - INFO - [__init__:32] - Initialized ClassicAnomalyDetector with strategy: statistical
+2026-01-05 16:20:33 - app.services.llm.llm - INFO - [__init__:23] - Initialized OpenAIClient with model: openrouter/mistralai/devstral-2512:free
+2026-01-05 16:20:33 - app.services.workflow - INFO - [__init__:29] - Initialized InfraWorkflow with config: {'detector_type': 'classic', 'threshold': 4.0}
+2026-01-05 16:20:33 - __main__ - INFO - [batch_mode:45] - Starting batch mode with input: /home/jaadari/Desktop/test_devoteam/rapport.json
+2026-01-05 16:20:33 - __main__ - INFO - [batch_mode:53] - Loaded 500 records from /home/jaadari/Desktop/test_devoteam/rapport.json
+2026-01-05 16:20:33 - app.services.workflow - INFO - [process:129] - Processing 500 input records
+2026-01-05 16:20:33 - app.services.workflow - INFO - [_validate_and_parse:34] - Validating 500 input records
+2026-01-05 16:20:33 - app.services.workflow - INFO - [_validate_and_parse:38] - Successfully validated and parsed 500 records
+2026-01-05 16:20:33 - app.services.workflow - INFO - [_detect_anomalies_and_extract:47] - Starting anomaly detection
+2026-01-05 16:20:33 - app.services.anomaly_detector.classic - INFO - [detect:161] - Starting anomaly detection with strategy: statistical
+2026-01-05 16:20:33 - app.services.anomaly_detector.classic - INFO - [detect:188] - Detection complete: 8 anomalies found
+2026-01-05 16:20:33 - app.services.workflow - INFO - [_detect_anomalies_and_extract:52] - Detected 8 anomalies
+2026-01-05 16:20:33 - app.services.workflow - INFO - [_generate_recommendations:61] - Generating recommendations
+2026-01-05 16:20:33 - app.services.llm.llm - INFO - [generate_recommendations:28] - Generating recommendations for 8 anomalies
+2026-01-05 16:20:33 - app.services.workflow - ERROR - [_generate_recommendations:72] - Recommendation generation error: <failed_attempts>
+
+<generation number="1">
+<exception>
+    Error code: 401 - {'error': {'message': 'No cookie auth credentials found', 'code': 401}}
+</exception>
+<completion>
+    None
+</completion>
+</generation>
+
+<generation number="2">
+<exception>
+    Error code: 401 - {'error': {'message': 'No cookie auth credentials found', 'code': 401}}
+</exception>
+<completion>
+    None
+</completion>
+</generation>
+
+<generation number="3">
+<exception>
+    Error code: 401 - {'error': {'message': 'No cookie auth credentials found', 'code': 401}}
+</exception>
+<completion>
+    None
+</completion>
+</generation>
+
+</failed_attempts>
+
+<last_exception>
+    Error code: 401 - {'error': {'message': 'No cookie auth credentials found', 'code': 401}}
+</last_exception>
 Traceback (most recent call last):
-  File "/home/jaadari/Desktop/test_devoteam/app/main.py", line 47, in batch_mode
-    with open(input_file, 'r') as f:
-         ^^^^^^^^^^^^^^^^^^^^^
-TypeError: expected str, bytes or os.PathLike object, not NoneType
-2026-01-05 12:42:24 - __main__ - CRITICAL - [main:39] - Fatal error in main: expected str, bytes or os.PathLike object, not NoneType
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/instructor/core/retry.py", line 282, in retry_sync
+    raise e
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/instructor/core/retry.py", line 193, in retry_sync
+    response = func(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/openai/_utils/_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1192, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'No cookie auth credentials found', 'code': 401}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/instructor/core/retry.py", line 188, in retry_sync
+    for attempt in max_retries:
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 445, in __iter__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 378, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 421, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x7dc43dd89a30 state=finished raised AuthenticationError>]
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jaadari/Desktop/test_devoteam/app/services/workflow.py", line 62, in _generate_recommendations
+    recommendations = self.llm_client.generate_recommendations(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/app/services/llm/llm.py", line 31, in generate_recommendations
+    recommendations = self.client.create(
+                      ^^^^^^^^^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/instructor/core/client.py", line 376, in create
+    return self.create_fn(
+           ^^^^^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/instructor/core/patch.py", line 258, in new_create_sync
+    response = retry_sync(
+               ^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/instructor/core/retry.py", line 285, in retry_sync
+    raise InstructorRetryException(
+instructor.core.exceptions.InstructorRetryException: <failed_attempts>
+
+<generation number="1">
+<exception>
+    Error code: 401 - {'error': {'message': 'No cookie auth credentials found', 'code': 401}}
+</exception>
+<completion>
+    None
+</completion>
+</generation>
+
+<generation number="2">
+<exception>
+    Error code: 401 - {'error': {'message': 'No cookie auth credentials found', 'code': 401}}
+</exception>
+<completion>
+    None
+</completion>
+</generation>
+
+<generation number="3">
+<exception>
+    Error code: 401 - {'error': {'message': 'No cookie auth credentials found', 'code': 401}}
+</exception>
+<completion>
+    None
+</completion>
+</generation>
+
+</failed_attempts>
+
+<last_exception>
+    Error code: 401 - {'error': {'message': 'No cookie auth credentials found', 'code': 401}}
+</last_exception>
+2026-01-05 16:20:33 - __main__ - ERROR - [batch_mode:69] - Error in batch mode: <failed_attempts>
+
+<generation number="1">
+<exception>
+    Error code: 401 - {'error': {'message': 'No cookie auth credentials found', 'code': 401}}
+</exception>
+<completion>
+    None
+</completion>
+</generation>
+
+<generation number="2">
+<exception>
+    Error code: 401 - {'error': {'message': 'No cookie auth credentials found', 'code': 401}}
+</exception>
+<completion>
+    None
+</completion>
+</generation>
+
+<generation number="3">
+<exception>
+    Error code: 401 - {'error': {'message': 'No cookie auth credentials found', 'code': 401}}
+</exception>
+<completion>
+    None
+</completion>
+</generation>
+
+</failed_attempts>
+
+<last_exception>
+    Error code: 401 - {'error': {'message': 'No cookie auth credentials found', 'code': 401}}
+</last_exception>
+Traceback (most recent call last):
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/instructor/core/retry.py", line 282, in retry_sync
+    raise e
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/instructor/core/retry.py", line 193, in retry_sync
+    response = func(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/openai/_utils/_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1192, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'No cookie auth credentials found', 'code': 401}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/instructor/core/retry.py", line 188, in retry_sync
+    for attempt in max_retries:
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 445, in __iter__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 378, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 421, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x7dc43dd89a30 state=finished raised AuthenticationError>]
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jaadari/Desktop/test_devoteam/app/main.py", line 55, in batch_mode
+    report = workflow.process(data)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/app/services/workflow.py", line 131, in process
+    result = self.graph.invoke(state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/langgraph/pregel/main.py", line 3068, in invoke
+    for chunk in self.stream(
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2643, in stream
+    for _ in runner.tick(
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 167, in tick
+    run_with_retry(
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 42, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 656, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 400, in invoke
+    ret = self.func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/app/services/workflow.py", line 62, in _generate_recommendations
+    recommendations = self.llm_client.generate_recommendations(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/app/services/llm/llm.py", line 31, in generate_recommendations
+    recommendations = self.client.create(
+                      ^^^^^^^^^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/instructor/core/client.py", line 376, in create
+    return self.create_fn(
+           ^^^^^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/instructor/core/patch.py", line 258, in new_create_sync
+    response = retry_sync(
+               ^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/instructor/core/retry.py", line 285, in retry_sync
+    raise InstructorRetryException(
+instructor.core.exceptions.InstructorRetryException: <failed_attempts>
+
+<generation number="1">
+<exception>
+    Error code: 401 - {'error': {'message': 'No cookie auth credentials found', 'code': 401}}
+</exception>
+<completion>
+    None
+</completion>
+</generation>
+
+<generation number="2">
+<exception>
+    Error code: 401 - {'error': {'message': 'No cookie auth credentials found', 'code': 401}}
+</exception>
+<completion>
+    None
+</completion>
+</generation>
+
+<generation number="3">
+<exception>
+    Error code: 401 - {'error': {'message': 'No cookie auth credentials found', 'code': 401}}
+</exception>
+<completion>
+    None
+</completion>
+</generation>
+
+</failed_attempts>
+
+<last_exception>
+    Error code: 401 - {'error': {'message': 'No cookie auth credentials found', 'code': 401}}
+</last_exception>
+During task with name 'generate_recommendations' and id 'b6d96bb5-f9f5-d5a5-f37b-1ba4d870dc77'
+2026-01-05 16:20:33 - __main__ - CRITICAL - [main:39] - Fatal error in main: <failed_attempts>
+
+<generation number="1">
+<exception>
+    Error code: 401 - {'error': {'message': 'No cookie auth credentials found', 'code': 401}}
+</exception>
+<completion>
+    None
+</completion>
+</generation>
+
+<generation number="2">
+<exception>
+    Error code: 401 - {'error': {'message': 'No cookie auth credentials found', 'code': 401}}
+</exception>
+<completion>
+    None
+</completion>
+</generation>
+
+<generation number="3">
+<exception>
+    Error code: 401 - {'error': {'message': 'No cookie auth credentials found', 'code': 401}}
+</exception>
+<completion>
+    None
+</completion>
+</generation>
+
+</failed_attempts>
+
+<last_exception>
+    Error code: 401 - {'error': {'message': 'No cookie auth credentials found', 'code': 401}}
+</last_exception>
+Traceback (most recent call last):
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/instructor/core/retry.py", line 282, in retry_sync
+    raise e
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/instructor/core/retry.py", line 193, in retry_sync
+    response = func(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/openai/_utils/_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1192, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'No cookie auth credentials found', 'code': 401}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/instructor/core/retry.py", line 188, in retry_sync
+    for attempt in max_retries:
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 445, in __iter__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 378, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 421, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x7dc43dd89a30 state=finished raised AuthenticationError>]
+
+The above exception was the direct cause of the following exception:
+
 Traceback (most recent call last):
   File "/home/jaadari/Desktop/test_devoteam/app/main.py", line 34, in main
     batch_mode(workflow, args.input)
-  File "/home/jaadari/Desktop/test_devoteam/app/main.py", line 47, in batch_mode
-    with open(input_file, 'r') as f:
-         ^^^^^^^^^^^^^^^^^^^^^
-TypeError: expected str, bytes or os.PathLike object, not NoneType
-2026-01-05 12:45:04 - app.services.anomaly_detector.classic - INFO - [__init__:32] - Initialized ClassicAnomalyDetector with strategy: statistical
-2026-01-05 12:45:04 - app.services.llm.llm - INFO - [__init__:38] - Initialized OpenAIClient with model: gpt-4o
-2026-01-05 12:45:04 - app.services.workflow - INFO - [__init__:29] - Initialized InfraWorkflow with config: {'detector_type': 'classic', 'threshold': 4.0}
-2026-01-05 12:45:04 - __main__ - INFO - [batch_mode:45] - Starting batch mode with input: /home/jaadari/Desktop/test_devoteam/rapport.json
-2026-01-05 12:45:04 - __main__ - INFO - [batch_mode:53] - Loaded 500 records from /home/jaadari/Desktop/test_devoteam/rapport.json
-2026-01-05 12:45:04 - app.services.workflow - INFO - [process:128] - Processing 500 input records
-2026-01-05 12:45:04 - app.services.workflow - INFO - [_validate_and_parse:34] - Validating 500 input records
-2026-01-05 12:45:04 - app.services.workflow - INFO - [_validate_and_parse:38] - Successfully validated and parsed 500 records
-2026-01-05 12:45:04 - app.services.workflow - INFO - [_detect_anomalies_and_extract:47] - Starting anomaly detection
-2026-01-05 12:45:04 - app.services.anomaly_detector.classic - INFO - [detect:161] - Starting anomaly detection with strategy: statistical
-2026-01-05 12:45:04 - app.services.anomaly_detector.classic - INFO - [detect:188] - Detection complete: 8 anomalies found
-2026-01-05 12:45:04 - app.services.workflow - INFO - [_detect_anomalies_and_extract:52] - Detected 8 anomalies
-2026-01-05 12:45:04 - app.services.workflow - INFO - [_generate_recommendations:61] - Generating recommendations
-2026-01-05 12:45:04 - app.services.llm.llm - INFO - [generate_recommendations:92] - Generated 4 recommendations
-2026-01-05 12:45:04 - app.services.workflow - INFO - [_generate_recommendations:68] - Generated 4 recommendations
-2026-01-05 12:45:04 - app.services.workflow - INFO - [_final_report:77] - Generating final report
-2026-01-05 12:45:04 - app.services.workflow - INFO - [_final_report:95] - Final report generated successfully
-2026-01-05 12:45:04 - __main__ - INFO - [batch_mode:59] - Batch processing completed successfully
+  File "/home/jaadari/Desktop/test_devoteam/app/main.py", line 55, in batch_mode
+    report = workflow.process(data)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/app/services/workflow.py", line 131, in process
+    result = self.graph.invoke(state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/langgraph/pregel/main.py", line 3068, in invoke
+    for chunk in self.stream(
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2643, in stream
+    for _ in runner.tick(
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 167, in tick
+    run_with_retry(
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 42, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 656, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 400, in invoke
+    ret = self.func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/app/services/workflow.py", line 62, in _generate_recommendations
+    recommendations = self.llm_client.generate_recommendations(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/app/services/llm/llm.py", line 31, in generate_recommendations
+    recommendations = self.client.create(
+                      ^^^^^^^^^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/instructor/core/client.py", line 376, in create
+    return self.create_fn(
+           ^^^^^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/instructor/core/patch.py", line 258, in new_create_sync
+    response = retry_sync(
+               ^^^^^^^^^^^
+  File "/home/jaadari/Desktop/test_devoteam/.venv/lib/python3.12/site-packages/instructor/core/retry.py", line 285, in retry_sync
+    raise InstructorRetryException(
+instructor.core.exceptions.InstructorRetryException: <failed_attempts>
+
+<generation number="1">
+<exception>
+    Error code: 401 - {'error': {'message': 'No cookie auth credentials found', 'code': 401}}
+</exception>
+<completion>
+    None
+</completion>
+</generation>
+
+<generation number="2">
+<exception>
+    Error code: 401 - {'error': {'message': 'No cookie auth credentials found', 'code': 401}}
+</exception>
+<completion>
+    None
+</completion>
+</generation>
+
+<generation number="3">
+<exception>
+    Error code: 401 - {'error': {'message': 'No cookie auth credentials found', 'code': 401}}
+</exception>
+<completion>
+    None
+</completion>
+</generation>
+
+</failed_attempts>
+
+<last_exception>
+    Error code: 401 - {'error': {'message': 'No cookie auth credentials found', 'code': 401}}
+</last_exception>
+During task with name 'generate_recommendations' and id 'b6d96bb5-f9f5-d5a5-f37b-1ba4d870dc77'
+2026-01-05 16:20:53 - app.services.anomaly_detector.classic - INFO - [__init__:32] - Initialized ClassicAnomalyDetector with strategy: statistical
+2026-01-05 16:20:53 - app.services.llm.llm - INFO - [__init__:23] - Initialized OpenAIClient with model: openrouter/mistralai/devstral-2512:free
+2026-01-05 16:20:53 - app.services.workflow - INFO - [__init__:29] - Initialized InfraWorkflow with config: {'detector_type': 'classic', 'threshold': 4.0}
+2026-01-05 16:20:53 - __main__ - INFO - [batch_mode:45] - Starting batch mode with input: /home/jaadari/Desktop/test_devoteam/rapport.json
+2026-01-05 16:20:53 - __main__ - INFO - [batch_mode:53] - Loaded 500 records from /home/jaadari/Desktop/test_devoteam/rapport.json
+2026-01-05 16:20:53 - app.services.workflow - INFO - [process:129] - Processing 500 input records
+2026-01-05 16:20:53 - app.services.workflow - INFO - [_validate_and_parse:34] - Validating 500 input records
+2026-01-05 16:20:53 - app.services.workflow - INFO - [_validate_and_parse:38] - Successfully validated and parsed 500 records
+2026-01-05 16:20:53 - app.services.workflow - INFO - [_detect_anomalies_and_extract:47] - Starting anomaly detection
+2026-01-05 16:20:53 - app.services.anomaly_detector.classic - INFO - [detect:161] - Starting anomaly detection with strategy: statistical
+2026-01-05 16:20:53 - app.services.anomaly_detector.classic - INFO - [detect:188] - Detection complete: 8 anomalies found
+2026-01-05 16:20:53 - app.services.workflow - INFO - [_detect_anomalies_and_extract:52] - Detected 8 anomalies
+2026-01-05 16:20:53 - app.services.workflow - INFO - [_generate_recommendations:61] - Generating recommendations
+2026-01-05 16:20:53 - app.services.llm.llm - INFO - [generate_recommendations:28] - Generating recommendations for 8 anomalies
+2026-01-05 16:20:58 - app.services.llm.llm - INFO - [generate_recommendations:44] - Generated 3 recommendations from LLM
+2026-01-05 16:20:58 - app.services.workflow - INFO - [_generate_recommendations:69] - Generated 3 recommendations
+2026-01-05 16:20:58 - app.services.workflow - INFO - [_final_report:78] - Generating final report
+2026-01-05 16:20:58 - app.services.workflow - INFO - [_final_report:96] - Final report generated successfully
+2026-01-05 16:20:58 - __main__ - INFO - [batch_mode:60] - Batch processing completed successfully

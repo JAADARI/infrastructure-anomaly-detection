@@ -64,6 +64,7 @@ class InfraWorkflow:
                 state["insights"], 
                 state["service_status_summary"]
             )
+            print("recommendations:", recommendations)
             state["recommendations"] = recommendations
             logger.info(f"Generated {len(recommendations)} recommendations")
             return state

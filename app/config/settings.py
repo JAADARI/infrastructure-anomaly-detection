@@ -15,9 +15,9 @@ KAFKA_OUTPUT_TOPIC = os.getenv("KAFKA_OUTPUT_TOPIC", "infra-output")
 KAFKA_TIMEOUT = int(os.getenv("KAFKA_TIMEOUT", "30"))
 
 # LLM Configuration
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "sk-...")
-LLM_MODEL = os.getenv("LLM_MODEL", "gpt-4o")
-
+LLM_MODEL = os.getenv("LLM_MODEL", "openrouter/mistralai/devstral-2512:free")
+LLM_BASE_URL = os.getenv("LLM_BASE_URL", "https://openrouter.ai/api/v1")
+LLM_API_KEY = os.getenv("LLM_API_KEY", "sk-your-api-key-here")
 # Application Configuration
 LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
 DEBUG_MODE = os.getenv("DEBUG_MODE", "False").lower() == "true"

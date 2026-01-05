@@ -54,8 +54,9 @@ def batch_mode(workflow: InfraWorkflow, input_file: str):
         
         report = workflow.process(data)
         
-        output = json.loads(report.model_dump_json())
-        print(json.dumps(output, indent=2))
+        with open("final_report.json", "w", encoding="utf-8") as f:
+            json.dump(json.loads(report.model_dump_json()), f, indent=2, ensure_ascii=False)
+
         logger.info("Batch processing completed successfully")
         
     except FileNotFoundError:
