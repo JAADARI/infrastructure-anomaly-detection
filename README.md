@@ -59,41 +59,73 @@ This system monitors infrastructure metrics (CPU, memory, latency, disk usage, e
 
 ## Architecture
 
+### Runtime Dataflow (Batch vs Stream)
+
 ```
-┌─────────────────┐
-│  Input Source   │
-│  (JSON/Kafka)   │
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────────────────┐
-│   Validation & Parsing      │
-│   (Pydantic Models)         │
-└────────┬────────────────────┘
-         │
-         ▼
-┌─────────────────────────────┐
-│   Anomaly Detection         │
-│   (ML Strategies)           │
-└────────┬────────────────────┘
-         │
-         ▼
-┌─────────────────────────────┐
-│   LLM Recommendations       │
-│   (OpenAI Integration)      │
-└────────┬────────────────────┘
-         │
-         ▼
-┌─────────────────────────────┐
-│   Report Generation         │
-│   (JSON Output)             │
-└────────┬────────────────────┘
-         │
-         ▼
-┌─────────────────┐
-│  Output Sink    │
-│  (JSON/Kafka)   │
-└─────────────────┘
+                     ┌───────────────────────────────┐
+                     │            User CLI            │
+                     │  python -m app.main --mode ... │
+                     └───────────────┬───────────────┘
+                                     │
+                ┌────────────────────┴────────────────────┐
+                │                                         │
+                ▼                                         ▼
+   ┌──────────────────────────┐                ┌──────────────────────────┐
+   │      Batch Mode          │                │       Stream Mode         │
+   │  --mode batch --input    │                │       --mode stream       │
+   └─────────────┬────────────┘                └─────────────┬────────────┘
+                 │                                          │
+                 ▼                                          ▼
+   ┌──────────────────────────┐              ┌───────────────────────────────┐
+   │ Read JSON file           │              │ Kafka Consumer (aiokafka)      │
+   │ - list OR {"data": [...]}│              │ topic: KAFKA_INPUT_TOPIC       │
+   └─────────────┬────────────┘              └───────────────┬───────────────┘
+                 │                                          │
+                 ▼                                          ▼
+        ┌─────────────────┐                      ┌──────────────────────────┐
+        │ InfraWorkflow    │                      │ For each event:          │
+        │ (LangGraph)      │                      │ - normalize to list      │
+        │ workflow.process │                      │ - workflow.process(...)  │
+        └─────────┬───────┘                      └─────────────┬────────────┘
+                  │                                          │
+                  ▼                                          ▼
+   ┌──────────────────────────┐              ┌───────────────────────────────┐
+   │ Write final_report.json  │              │ Kafka Producer (aiokafka)      │
+   │ (current working dir)    │              │ topic: KAFKA_OUTPUT_TOPIC      │
+   └──────────────────────────┘              └───────────────────────────────┘
+```
+
+### Workflow Graph (LangGraph) – exact node sequence & decision
+
+```
+START
+  │
+  ▼
+validate_and_parse
+  - validate each record with InputData (Pydantic)
+  - convert to pandas DataFrame
+  │
+  ▼
+detect_anomalies_and_extract
+  - anomaly_detector.detect(df)
+  - outputs:
+      anomalies: List[dict]
+      insights: dict
+      service_status_summary: dict
+  │
+  ├─────────────── if anomalies exist ───────────────┐
+  │                                                  │
+  ▼                                                  ▼
+generate_recommendations                             final_report
+  - OpenAIClient.generate_recommendations(...)         - build Insight/Anomaly/Recommendation
+  - Instructor provider (env-configured)               - build ServiceStatusSummary
+  - returns List[Recommendation]                       - build FinalReport (timestamp in UTC)
+  │                                                  │
+  ▼                                                  ▼
+final_report                                         END
+  │
+  ▼
+END
 ```
 
 ## Prerequisites
