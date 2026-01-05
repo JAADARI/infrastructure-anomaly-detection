@@ -52,21 +52,6 @@ This system monitors infrastructure metrics (CPU, memory, latency, disk usage, e
 2. **Multivariate Detection** - Isolation Forest algorithm
 3. **PCA-Mahalanobis** - Correlation pattern detection
 
-### Metrics Monitored
-
-- CPU Usage (%)
-- Memory Usage (%)
-- Latency (ms)
-- Disk Usage (%)
-- Network I/O (Kbps)
-- IO Wait (%)
-- Thread Count
-- Active Connections
-- Error Rate (%)
-- Temperature (°C)
-- Power Consumption (W)
-- Service Status
-
 ### Processing Modes
 
 - **Batch Mode** - Process static JSON files
@@ -148,17 +133,12 @@ docker-compose ps
 docker-compose logs -f kafka
 ```
 
-### 4. Create Logs Directory
-
-```bash
-mkdir -p logs
-```
 
 ## Configuration
 
 ### Environment Variables
 
-Create a `.env` file in the project root:
+Create a `.env` file in the project root (or export variables in your shell):
 
 ```bash
 # Kafka Configuration
@@ -167,9 +147,10 @@ KAFKA_INPUT_TOPIC=infra-input
 KAFKA_OUTPUT_TOPIC=infra-output
 KAFKA_TIMEOUT=30
 
-# LLM Configuration
-OPENAI_API_KEY=sk-your-api-key-here
-LLM_MODEL=gpt-4o
+# LLM Configuration (Instructor provider)
+LLM_BASE_URL=https://openrouter.ai/api/v1
+LLM_API_KEY=sk-your-api-key-here
+LLM_MODEL=openrouter/mistralai/devstral-2512:free
 
 # Application Configuration
 LOG_LEVEL=INFO
@@ -178,15 +159,6 @@ DEBUG_MODE=False
 # Anomaly Detection Configuration
 ANOMALY_THRESHOLD=4.0
 CONTAMINATION_RATE=0.05
-```
-
-### Settings Override
-
-Edit `app/config/settings.py` for permanent configuration changes:
-
-```python
-ANOMALY_THRESHOLD = 4.0  # Z-score threshold
-CONTAMINATION_RATE = 0.05  # Expected anomaly percentage
 ```
 
 ## Usage
@@ -199,20 +171,6 @@ CONTAMINATION_RATE = 0.05  # Expected anomaly percentage
 # Using uv run
 uv run python -m app.main --mode batch --input /path/to/your/data.json
 ```
-
-#### Complete Example
-
-```bash
-# Process the sample report
-uv run python -m app.main --mode batch --input /home/jaadari/Desktop/test_devoteam/rapport.json
-
-# Or use relative path
-uv run python -m app.main --mode batch --input ./rapport.json
-
-# With custom anomaly threshold
-uv run python -m app.main --mode batch --input ./rapport.json --threshold 3.0
-```
-
 
 ### Streaming Mode (Kafka)
 
@@ -334,32 +292,6 @@ class FinalReport(BaseModel):
     recommendations: List[Recommendation]   # LLM recommendations
     service_status_summary: ServiceStatusSummary
 ```
-
-### Anomaly Detection Strategies
-
-#### 1. Statistical (Z-Score)
-
-```bash
-# Default strategy - detects individual metric deviations
-uv run python -m app.main --mode batch --input data.json
-```
-
-#### 2. Multivariate (Isolation Forest)
-
-Edit `app/config/settings.py`:
-```python
-# Change detector strategy
-from app.services.anomaly_detector.utils import DetectionStrategy
-strategy = DetectionStrategy.MULTIVARIATE
-```
-
-#### 3. PCA-Mahalanobis
-
-Edit `app/config/settings.py`:
-```python
-strategy = DetectionStrategy.PCA_MAHALANOBIS
-```
-
 
 ## License
 
