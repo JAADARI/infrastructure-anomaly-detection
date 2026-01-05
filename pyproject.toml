@@ -1,0 +1,16 @@
+[project]
+name = "test-devoteam"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "aiokafka>=0.13.0",
+    "instructor>=1.13.0",
+    "kafka-python>=2.3.0",
+    "langchain>=1.2.0",
+    "numpy>=2.4.0",
+    "pandas>=2.3.3",
+    "pydantic>=2.12.5",
+    "scikit-learn>=1.8.0",
+]

@@ -1,0 +1,131 @@
+2026-01-05 12:34:38 - app.services.anomaly_detector.classic - INFO - [__init__:32] - Initialized ClassicAnomalyDetector with strategy: statistical
+2026-01-05 12:34:38 - app.services.llm.llm - INFO - [__init__:38] - Initialized OpenAIClient with model: gpt-4o
+2026-01-05 12:34:38 - app.services.workflow - INFO - [__init__:29] - Initialized InfraWorkflow with config: {'detector_type': 'classic', 'threshold': 4.0}
+2026-01-05 12:34:38 - app.services.kafka.consumer - INFO - [__init__:15] - Initialized AsyncEventConsumer for topic: infra-input, group: infra-anomaly-group
+2026-01-05 12:34:38 - app.services.kafka.producer - INFO - [__init__:16] - Initialized AsyncEventProducer for topic: infra-output
+2026-01-05 12:34:41 - app.services.kafka.consumer - INFO - [start:29] - Consumer started for infra-input
+2026-01-05 12:34:41 - app.services.kafka.producer - INFO - [start:27] - Producer started for infra-output
+2026-01-05 12:34:41 - __main__ - INFO - [stream_mode:80] - Started streaming mode: infra-input -> infra-output
+2026-01-05 12:35:26 - app.services.workflow - INFO - [process:128] - Processing 100 input records
+2026-01-05 12:35:26 - app.services.workflow - INFO - [_validate_and_parse:34] - Validating 100 input records
+2026-01-05 12:35:26 - app.services.workflow - INFO - [_validate_and_parse:38] - Successfully validated and parsed 100 records
+2026-01-05 12:35:26 - app.services.workflow - INFO - [_detect_anomalies_and_extract:47] - Starting anomaly detection
+2026-01-05 12:35:26 - app.services.anomaly_detector.classic - INFO - [detect:161] - Starting anomaly detection with strategy: statistical
+2026-01-05 12:35:26 - app.services.anomaly_detector.classic - INFO - [detect:188] - Detection complete: 2 anomalies found
+2026-01-05 12:35:26 - app.services.workflow - INFO - [_detect_anomalies_and_extract:52] - Detected 2 anomalies
+2026-01-05 12:35:27 - app.services.workflow - INFO - [_generate_recommendations:61] - Generating recommendations
+2026-01-05 12:35:27 - app.services.llm.llm - INFO - [generate_recommendations:92] - Generated 4 recommendations
+2026-01-05 12:35:27 - app.services.workflow - INFO - [_generate_recommendations:68] - Generated 4 recommendations
+2026-01-05 12:35:27 - app.services.workflow - INFO - [_final_report:77] - Generating final report
+2026-01-05 12:35:27 - app.services.workflow - INFO - [_final_report:95] - Final report generated successfully
+2026-01-05 12:36:26 - app.services.workflow - INFO - [process:128] - Processing 100 input records
+2026-01-05 12:36:26 - app.services.workflow - INFO - [_validate_and_parse:34] - Validating 100 input records
+2026-01-05 12:36:27 - app.services.workflow - INFO - [_validate_and_parse:38] - Successfully validated and parsed 100 records
+2026-01-05 12:36:27 - app.services.workflow - INFO - [_detect_anomalies_and_extract:47] - Starting anomaly detection
+2026-01-05 12:36:27 - app.services.anomaly_detector.classic - INFO - [detect:161] - Starting anomaly detection with strategy: statistical
+2026-01-05 12:36:27 - app.services.anomaly_detector.classic - INFO - [detect:188] - Detection complete: 1 anomalies found
+2026-01-05 12:36:27 - app.services.workflow - INFO - [_detect_anomalies_and_extract:52] - Detected 1 anomalies
+2026-01-05 12:36:27 - app.services.workflow - INFO - [_generate_recommendations:61] - Generating recommendations
+2026-01-05 12:36:27 - app.services.llm.llm - INFO - [generate_recommendations:92] - Generated 4 recommendations
+2026-01-05 12:36:27 - app.services.workflow - INFO - [_generate_recommendations:68] - Generated 4 recommendations
+2026-01-05 12:36:27 - app.services.workflow - INFO - [_final_report:77] - Generating final report
+2026-01-05 12:36:27 - app.services.workflow - INFO - [_final_report:95] - Final report generated successfully
+2026-01-05 12:37:27 - app.services.workflow - INFO - [process:128] - Processing 100 input records
+2026-01-05 12:37:27 - app.services.workflow - INFO - [_validate_and_parse:34] - Validating 100 input records
+2026-01-05 12:37:27 - app.services.workflow - INFO - [_validate_and_parse:38] - Successfully validated and parsed 100 records
+2026-01-05 12:37:27 - app.services.workflow - INFO - [_detect_anomalies_and_extract:47] - Starting anomaly detection
+2026-01-05 12:37:27 - app.services.anomaly_detector.classic - INFO - [detect:161] - Starting anomaly detection with strategy: statistical
+2026-01-05 12:37:27 - app.services.anomaly_detector.classic - INFO - [detect:188] - Detection complete: 2 anomalies found
+2026-01-05 12:37:27 - app.services.workflow - INFO - [_detect_anomalies_and_extract:52] - Detected 2 anomalies
+2026-01-05 12:37:27 - app.services.workflow - INFO - [_generate_recommendations:61] - Generating recommendations
+2026-01-05 12:37:27 - app.services.llm.llm - INFO - [generate_recommendations:92] - Generated 4 recommendations
+2026-01-05 12:37:27 - app.services.workflow - INFO - [_generate_recommendations:68] - Generated 4 recommendations
+2026-01-05 12:37:27 - app.services.workflow - INFO - [_final_report:77] - Generating final report
+2026-01-05 12:37:27 - app.services.workflow - INFO - [_final_report:95] - Final report generated successfully
+2026-01-05 12:38:27 - app.services.workflow - INFO - [process:128] - Processing 100 input records
+2026-01-05 12:38:27 - app.services.workflow - INFO - [_validate_and_parse:34] - Validating 100 input records
+2026-01-05 12:38:27 - app.services.workflow - INFO - [_validate_and_parse:38] - Successfully validated and parsed 100 records
+2026-01-05 12:38:27 - app.services.workflow - INFO - [_detect_anomalies_and_extract:47] - Starting anomaly detection
+2026-01-05 12:38:27 - app.services.anomaly_detector.classic - INFO - [detect:161] - Starting anomaly detection with strategy: statistical
+2026-01-05 12:38:27 - app.services.anomaly_detector.classic - INFO - [detect:188] - Detection complete: 1 anomalies found
+2026-01-05 12:38:27 - app.services.workflow - INFO - [_detect_anomalies_and_extract:52] - Detected 1 anomalies
+2026-01-05 12:38:27 - app.services.workflow - INFO - [_generate_recommendations:61] - Generating recommendations
+2026-01-05 12:38:27 - app.services.llm.llm - INFO - [generate_recommendations:92] - Generated 4 recommendations
+2026-01-05 12:38:27 - app.services.workflow - INFO - [_generate_recommendations:68] - Generated 4 recommendations
+2026-01-05 12:38:27 - app.services.workflow - INFO - [_final_report:77] - Generating final report
+2026-01-05 12:38:27 - app.services.workflow - INFO - [_final_report:95] - Final report generated successfully
+2026-01-05 12:39:27 - app.services.workflow - INFO - [process:128] - Processing 100 input records
+2026-01-05 12:39:27 - app.services.workflow - INFO - [_validate_and_parse:34] - Validating 100 input records
+2026-01-05 12:39:27 - app.services.workflow - INFO - [_validate_and_parse:38] - Successfully validated and parsed 100 records
+2026-01-05 12:39:27 - app.services.workflow - INFO - [_detect_anomalies_and_extract:47] - Starting anomaly detection
+2026-01-05 12:39:27 - app.services.anomaly_detector.classic - INFO - [detect:161] - Starting anomaly detection with strategy: statistical
+2026-01-05 12:39:27 - app.services.anomaly_detector.classic - INFO - [detect:188] - Detection complete: 2 anomalies found
+2026-01-05 12:39:27 - app.services.workflow - INFO - [_detect_anomalies_and_extract:52] - Detected 2 anomalies
+2026-01-05 12:39:27 - app.services.workflow - INFO - [_generate_recommendations:61] - Generating recommendations
+2026-01-05 12:39:27 - app.services.llm.llm - INFO - [generate_recommendations:92] - Generated 4 recommendations
+2026-01-05 12:39:27 - app.services.workflow - INFO - [_generate_recommendations:68] - Generated 4 recommendations
+2026-01-05 12:39:27 - app.services.workflow - INFO - [_final_report:77] - Generating final report
+2026-01-05 12:39:27 - app.services.workflow - INFO - [_final_report:95] - Final report generated successfully
+2026-01-05 12:40:27 - app.services.workflow - INFO - [process:128] - Processing 100 input records
+2026-01-05 12:40:27 - app.services.workflow - INFO - [_validate_and_parse:34] - Validating 100 input records
+2026-01-05 12:40:27 - app.services.workflow - INFO - [_validate_and_parse:38] - Successfully validated and parsed 100 records
+2026-01-05 12:40:27 - app.services.workflow - INFO - [_detect_anomalies_and_extract:47] - Starting anomaly detection
+2026-01-05 12:40:27 - app.services.anomaly_detector.classic - INFO - [detect:161] - Starting anomaly detection with strategy: statistical
+2026-01-05 12:40:27 - app.services.anomaly_detector.classic - INFO - [detect:188] - Detection complete: 2 anomalies found
+2026-01-05 12:40:27 - app.services.workflow - INFO - [_detect_anomalies_and_extract:52] - Detected 2 anomalies
+2026-01-05 12:40:27 - app.services.workflow - INFO - [_generate_recommendations:61] - Generating recommendations
+2026-01-05 12:40:27 - app.services.llm.llm - INFO - [generate_recommendations:92] - Generated 4 recommendations
+2026-01-05 12:40:27 - app.services.workflow - INFO - [_generate_recommendations:68] - Generated 4 recommendations
+2026-01-05 12:40:27 - app.services.workflow - INFO - [_final_report:77] - Generating final report
+2026-01-05 12:40:27 - app.services.workflow - INFO - [_final_report:95] - Final report generated successfully
+2026-01-05 12:41:27 - app.services.workflow - INFO - [process:128] - Processing 100 input records
+2026-01-05 12:41:27 - app.services.workflow - INFO - [_validate_and_parse:34] - Validating 100 input records
+2026-01-05 12:41:27 - app.services.workflow - INFO - [_validate_and_parse:38] - Successfully validated and parsed 100 records
+2026-01-05 12:41:27 - app.services.workflow - INFO - [_detect_anomalies_and_extract:47] - Starting anomaly detection
+2026-01-05 12:41:27 - app.services.anomaly_detector.classic - INFO - [detect:161] - Starting anomaly detection with strategy: statistical
+2026-01-05 12:41:27 - app.services.anomaly_detector.classic - INFO - [detect:188] - Detection complete: 1 anomalies found
+2026-01-05 12:41:27 - app.services.workflow - INFO - [_detect_anomalies_and_extract:52] - Detected 1 anomalies
+2026-01-05 12:41:27 - app.services.workflow - INFO - [_generate_recommendations:61] - Generating recommendations
+2026-01-05 12:41:27 - app.services.llm.llm - INFO - [generate_recommendations:92] - Generated 4 recommendations
+2026-01-05 12:41:27 - app.services.workflow - INFO - [_generate_recommendations:68] - Generated 4 recommendations
+2026-01-05 12:41:27 - app.services.workflow - INFO - [_final_report:77] - Generating final report
+2026-01-05 12:41:27 - app.services.workflow - INFO - [_final_report:95] - Final report generated successfully
+2026-01-05 12:42:14 - app.services.kafka.consumer - INFO - [stop:39] - Consumer stopped for infra-input
+2026-01-05 12:42:14 - app.services.kafka.consumer - INFO - [stop:39] - Consumer stopped for infra-input
+2026-01-05 12:42:14 - app.services.kafka.producer - INFO - [stop:37] - Producer stopped for infra-output
+2026-01-05 12:42:24 - app.services.anomaly_detector.classic - INFO - [__init__:32] - Initialized ClassicAnomalyDetector with strategy: statistical
+2026-01-05 12:42:24 - app.services.llm.llm - INFO - [__init__:38] - Initialized OpenAIClient with model: gpt-4o
+2026-01-05 12:42:24 - app.services.workflow - INFO - [__init__:29] - Initialized InfraWorkflow with config: {'detector_type': 'classic', 'threshold': 4.0}
+2026-01-05 12:42:24 - __main__ - INFO - [batch_mode:45] - Starting batch mode with input: None
+2026-01-05 12:42:24 - __main__ - ERROR - [batch_mode:68] - Error in batch mode: expected str, bytes or os.PathLike object, not NoneType
+Traceback (most recent call last):
+  File "/home/jaadari/Desktop/test_devoteam/app/main.py", line 47, in batch_mode
+    with open(input_file, 'r') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+2026-01-05 12:42:24 - __main__ - CRITICAL - [main:39] - Fatal error in main: expected str, bytes or os.PathLike object, not NoneType
+Traceback (most recent call last):
+  File "/home/jaadari/Desktop/test_devoteam/app/main.py", line 34, in main
+    batch_mode(workflow, args.input)
+  File "/home/jaadari/Desktop/test_devoteam/app/main.py", line 47, in batch_mode
+    with open(input_file, 'r') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+2026-01-05 12:45:04 - app.services.anomaly_detector.classic - INFO - [__init__:32] - Initialized ClassicAnomalyDetector with strategy: statistical
+2026-01-05 12:45:04 - app.services.llm.llm - INFO - [__init__:38] - Initialized OpenAIClient with model: gpt-4o
+2026-01-05 12:45:04 - app.services.workflow - INFO - [__init__:29] - Initialized InfraWorkflow with config: {'detector_type': 'classic', 'threshold': 4.0}
+2026-01-05 12:45:04 - __main__ - INFO - [batch_mode:45] - Starting batch mode with input: /home/jaadari/Desktop/test_devoteam/rapport.json
+2026-01-05 12:45:04 - __main__ - INFO - [batch_mode:53] - Loaded 500 records from /home/jaadari/Desktop/test_devoteam/rapport.json
+2026-01-05 12:45:04 - app.services.workflow - INFO - [process:128] - Processing 500 input records
+2026-01-05 12:45:04 - app.services.workflow - INFO - [_validate_and_parse:34] - Validating 500 input records
+2026-01-05 12:45:04 - app.services.workflow - INFO - [_validate_and_parse:38] - Successfully validated and parsed 500 records
+2026-01-05 12:45:04 - app.services.workflow - INFO - [_detect_anomalies_and_extract:47] - Starting anomaly detection
+2026-01-05 12:45:04 - app.services.anomaly_detector.classic - INFO - [detect:161] - Starting anomaly detection with strategy: statistical
+2026-01-05 12:45:04 - app.services.anomaly_detector.classic - INFO - [detect:188] - Detection complete: 8 anomalies found
+2026-01-05 12:45:04 - app.services.workflow - INFO - [_detect_anomalies_and_extract:52] - Detected 8 anomalies
+2026-01-05 12:45:04 - app.services.workflow - INFO - [_generate_recommendations:61] - Generating recommendations
+2026-01-05 12:45:04 - app.services.llm.llm - INFO - [generate_recommendations:92] - Generated 4 recommendations
+2026-01-05 12:45:04 - app.services.workflow - INFO - [_generate_recommendations:68] - Generated 4 recommendations
+2026-01-05 12:45:04 - app.services.workflow - INFO - [_final_report:77] - Generating final report
+2026-01-05 12:45:04 - app.services.workflow - INFO - [_final_report:95] - Final report generated successfully
+2026-01-05 12:45:04 - __main__ - INFO - [batch_mode:59] - Batch processing completed successfully
