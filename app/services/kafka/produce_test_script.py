@@ -1,6 +1,5 @@
 import asyncio
 import json
-import time
 from aiokafka import AIOKafkaProducer
 
 KAFKA_BOOTSTRAP_SERVERS = "localhost:29092"
@@ -35,7 +34,7 @@ async def produce():
         while True:
             batch_count += 1
             print(f"\n=== Batch {batch_count} ===")
-            print(f"Creating a batch of 100 entries...")
+            print("Creating a batch of 100 entries...")
             
             # Collect 100 entries into a single list
             batch = []
@@ -48,7 +47,7 @@ async def produce():
             await producer.send_and_wait(KAFKA_INPUT_TOPIC, batch)
             
             print(f"✓ Batch {batch_count} sent (1 message containing 100 entries)")
-            print(f"Waiting 60 seconds before next batch...")
+            print("Waiting 60 seconds before next batch...")
             
             # Wait 60 seconds before sending the next batch
             await asyncio.sleep(60)

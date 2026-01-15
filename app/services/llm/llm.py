@@ -3,17 +3,19 @@ from typing import List
 from app.schemas.output import Recommendation
 from app.config.settings import LLM_MODEL, LLM_BASE_URL, LLM_API_KEY
 from app.config.logger import setup_logger
+from app.services.llm.base import BaseLLMClient
 
 logger = setup_logger(__name__)
 
 
-class OpenAIClient:
+class OpenRouterClient(BaseLLMClient):
     """LLM client for generating infrastructure recommendations using Instructor."""
 
     def __init__(self):
         """
         Initialize OpenAI client with instructor for structured outputs.
         """
+        
         self.client = instructor.from_provider(
             model=LLM_MODEL,
             base_url=LLM_BASE_URL,
@@ -47,7 +49,6 @@ class OpenAIClient:
     def _build_prompt(
         self, anomalies: List[dict], insights: dict, service_status_summary: dict
     ) -> str:
-        # ...existing code...
         anomalies_text = "\n".join(
             [
                 f"- {a['metric']}: {a['description']} (severity: {a['severity']})"

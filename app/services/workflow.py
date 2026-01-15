@@ -3,7 +3,7 @@ from langgraph.graph import StateGraph, START, END
 from app.schemas.input import InputData
 from app.schemas.output import FinalReport, Anomaly, Recommendation, Insight, ServiceStatusSummary
 from app.services.anomaly_detector.factory import create_anomaly_detector
-from app.services.llm.llm import OpenAIClient
+from app.services.llm.llm import OpenRouterClient
 from app.config.logger import setup_logger
 import pandas as pd
 from datetime import datetime, timezone
@@ -24,7 +24,7 @@ class InfraWorkflow:
     
     def __init__(self, anomaly_config: dict, llm_client=None):
         self.anomaly_detector = create_anomaly_detector(anomaly_config)
-        self.llm_client = llm_client or OpenAIClient()
+        self.llm_client = llm_client or OpenRouterClient()
         self.graph = self._build_graph()
         logger.info(f"Initialized InfraWorkflow with config: {anomaly_config}")
 

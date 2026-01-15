@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-class AnanomalyDetector(ABC):
+class AnomalyDetector(ABC):
     def __init__(self, config):
         self.config = config
 

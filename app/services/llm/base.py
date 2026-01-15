@@ -1,14 +1,11 @@
 from abc import ABC, abstractmethod
 
+from app.schemas.output import Recommendation
+
 class BaseLLMClient(ABC):
     @abstractmethod
-    def generate_response(self, prompt: str) -> str:
-        pass
-
-    @abstractmethod
-    def set_parameters(self, **kwargs) -> None:
-        pass
-
-    @abstractmethod
-    def get_model_info(self) -> dict:
+    def generate_recommendations(self, anomalies: list[dict],
+                                  insights: dict, 
+                                  service_status_summary: dict
+    ) -> list[Recommendation]:
         pass

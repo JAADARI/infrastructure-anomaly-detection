@@ -5,14 +5,14 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 from scipy.stats import chi2
 
-from app.services.anomaly_detector.base import AnanomalyDetector
+from app.services.anomaly_detector.base import AnomalyDetector
 from app.services.anomaly_detector.utils import NUMERIC_FEATURES, DetectionStrategy
 from app.config.logger import setup_logger
 from app.config.settings import ANOMALY_THRESHOLD, CONTAMINATION_RATE
 
 logger = setup_logger(__name__)
 
-class ClassicAnomalyDetector(AnanomalyDetector):
+class ClassicAnomalyDetector(AnomalyDetector):
     """Classic machine learning-based anomaly detection."""
     
     def __init__(self, threshold: float = ANOMALY_THRESHOLD, strategy: str = DetectionStrategy.MULTIVARIATE):
