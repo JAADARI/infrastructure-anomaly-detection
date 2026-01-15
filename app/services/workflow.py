@@ -1,7 +1,7 @@
 from typing import TypedDict, List, Literal
 from langgraph.graph import StateGraph, START, END
 from app.schemas.input import InputData
-from app.schemas.output import FinalReport, Anomaly, Recommendation, Insight, ServiceStatusSummary
+from app.schemas.output import FinalReport, Anomaly, Recommendation, Insight, ServiceStatusSummary, RemediationAction, ApprovalStatus
 from app.services.anomaly_detector.factory import create_anomaly_detector
 from app.services.llm.llm import OpenAIClient
 from app.config.logger import setup_logger
@@ -17,6 +17,7 @@ class InfraState(TypedDict, total=False):
     insights: dict
     recommendations: List[dict]
     service_status_summary: dict
+    remediation_actions: List[dict]
     final_report: dict
 
 class InfraWorkflow:
@@ -72,6 +73,48 @@ class InfraWorkflow:
             logger.error(f"Recommendation generation error: {str(e)}", exc_info=True)
             raise
 
+    def _plan_remediation(self, state: InfraState) -> InfraState:
+        """Transform recommendations into structured remediation actions."""
+        try:
+            logger.info("Planning remediation actions")
+            remediation_actions = []
+            
+            for idx, rec in enumerate(state.get("recommendations", [])):
+                # Convert Recommendation to dict if necessary
+                rec_dict = rec if isinstance(rec, dict) else rec.model_dump()
+                
+                action = {
+                    "id": f"action_{idx + 1}",
+                    "action_type": rec_dict.get("action", "unknown"),
+                    "target": rec_dict.get("target", "unknown"),
+                    "parameters": rec_dict.get("parameters", {}),
+                    "status": ApprovalStatus.PENDING_APPROVAL.value,
+                    "recommendation_id": rec_dict.get("id", f"rec_{idx + 1}")
+                }
+                remediation_actions.append(action)
+            
+            state["remediation_actions"] = remediation_actions
+            logger.info(f"Planned {len(remediation_actions)} remediation actions")
+            return state
+        except Exception as e:
+            logger.error(f"Remediation planning error: {str(e)}", exc_info=True)
+            raise
+
+    def _human_approval_stub(self, state: InfraState) -> InfraState:
+        """Human-in-the-loop approval stub - marks actions as pending approval."""
+        try:
+            logger.info("Processing human approval stub")
+            # This is a stub - in production, this would integrate with an approval system
+            # For now, we just ensure all actions are marked as pending_approval
+            for action in state.get("remediation_actions", []):
+                action["status"] = ApprovalStatus.PENDING_APPROVAL.value
+            
+            logger.info(f"Marked {len(state.get('remediation_actions', []))} actions as pending approval")
+            return state
+        except Exception as e:
+            logger.error(f"Approval stub error: {str(e)}", exc_info=True)
+            raise
+
     def _final_report(self, state: InfraState) -> InfraState:
         """Generate final report."""
         try:
@@ -84,13 +127,17 @@ class InfraWorkflow:
                 for r in state.get("recommendations", [])
             ]
             service_status_obj = ServiceStatusSummary(**state["service_status_summary"])
+            remediation_objs = [
+                RemediationAction(**ra) for ra in state.get("remediation_actions", [])
+            ]
             
             report = FinalReport(
                 timestamp=timestamp,
                 insights=insights_obj,
                 anomalies=anomaly_objs,
                 recommendations=rec_objs,
-                service_status_summary=service_status_obj
+                service_status_summary=service_status_obj,
+                remediation_actions=remediation_objs
             )
             state["final_report"] = report
             logger.info("Final report generated successfully")
@@ -111,6 +158,8 @@ class InfraWorkflow:
         builder.add_node("validate_and_parse", self._validate_and_parse)
         builder.add_node("detect_anomalies_and_extract", self._detect_anomalies_and_extract)
         builder.add_node("generate_recommendations", self._generate_recommendations)
+        builder.add_node("plan_remediation", self._plan_remediation)
+        builder.add_node("human_approval_stub", self._human_approval_stub)
         builder.add_node("final_report", self._final_report)
 
         builder.add_edge(START, "validate_and_parse")
@@ -120,7 +169,9 @@ class InfraWorkflow:
             self._should_generate_recommendations,
             ["generate_recommendations", "final_report"]
         )
-        builder.add_edge("generate_recommendations", "final_report")
+        builder.add_edge("generate_recommendations", "plan_remediation")
+        builder.add_edge("plan_remediation", "human_approval_stub")
+        builder.add_edge("human_approval_stub", "final_report")
         builder.add_edge("final_report", END)
         return builder.compile()
 

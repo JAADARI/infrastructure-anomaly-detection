@@ -9,6 +9,12 @@ class SeverityLevel(str, Enum):
     HIGH = "high"
     CRITICAL = "critical"
 
+class ApprovalStatus(str, Enum):
+    """Remediation action approval status."""
+    PENDING_APPROVAL = "pending_approval"
+    APPROVED = "approved"
+    REJECTED = "rejected"
+
 class Insight(BaseModel):
     """Infrastructure insights."""
     average_latency_ms: float = Field(..., ge=0)
@@ -39,6 +45,15 @@ class ServiceStatusSummary(BaseModel):
     degraded: List[str] = Field(default_factory=list)
     offline: List[str] = Field(default_factory=list)
 
+class RemediationAction(BaseModel):
+    """Planned remediation action."""
+    id: str = Field(..., description="Unique action ID")
+    action_type: str = Field(..., description="Type of remediation action")
+    target: str = Field(..., description="Target component")
+    parameters: Dict[str, Any] = Field(default_factory=dict, description="Action parameters")
+    status: ApprovalStatus = Field(..., description="Approval status")
+    recommendation_id: str = Field(..., description="Associated recommendation ID")
+
 class FinalReport(BaseModel):
     """Final analysis report."""
     timestamp: str = Field(..., description="Report timestamp")
@@ -46,3 +61,4 @@ class FinalReport(BaseModel):
     anomalies: List[Anomaly] = Field(default_factory=list, description="Detected anomalies")
     recommendations: List[Recommendation] = Field(default_factory=list, description="Recommendations")
     service_status_summary: ServiceStatusSummary = Field(..., description="Service status")
+    remediation_actions: List[RemediationAction] = Field(default_factory=list, description="Planned remediation actions")
