@@ -1,110 +1,18 @@
 {
-  "timestamp": "2026-01-05T15:20:58.635761+00:00",
+  "timestamp": "2026-01-15T09:44:43.481980+00:00",
   "insights": {
-    "average_latency_ms": 202.375,
-    "max_cpu_usage": 73.0,
-    "max_memory_usage": 73.0,
-    "error_rate": 0.05,
-    "uptime_seconds": 1197000
+    "average_latency_ms": 0.0,
+    "max_cpu_usage": 0.0,
+    "max_memory_usage": 0.0,
+    "error_rate": 0.0,
+    "uptime_seconds": 0
   },
-  "anomalies": [
-    {
-      "metric": "thread_count",
-      "value": 186.0,
-      "threshold": 180.5869741045432,
-      "severity": "medium",
-      "description": "thread_count deviates significantly (z-score=4.74)"
-    },
-    {
-      "metric": "thread_count",
-      "value": 189.0,
-      "threshold": 180.5869741045432,
-      "severity": "high",
-      "description": "thread_count deviates significantly (z-score=5.16)"
-    },
-    {
-      "metric": "thread_count",
-      "value": 184.0,
-      "threshold": 180.5869741045432,
-      "severity": "medium",
-      "description": "thread_count deviates significantly (z-score=4.47)"
-    },
-    {
-      "metric": "thread_count",
-      "value": 185.0,
-      "threshold": 180.5869741045432,
-      "severity": "medium",
-      "description": "thread_count deviates significantly (z-score=4.61)"
-    },
-    {
-      "metric": "thread_count",
-      "value": 188.0,
-      "threshold": 180.5869741045432,
-      "severity": "high",
-      "description": "thread_count deviates significantly (z-score=5.02)"
-    },
-    {
-      "metric": "thread_count",
-      "value": 188.0,
-      "threshold": 180.5869741045432,
-      "severity": "high",
-      "description": "thread_count deviates significantly (z-score=5.02)"
-    },
-    {
-      "metric": "thread_count",
-      "value": 181.0,
-      "threshold": 180.5869741045432,
-      "severity": "medium",
-      "description": "thread_count deviates significantly (z-score=4.06)"
-    },
-    {
-      "metric": "thread_count",
-      "value": 186.0,
-      "threshold": 180.5869741045432,
-      "severity": "medium",
-      "description": "thread_count deviates significantly (z-score=4.74)"
-    }
-  ],
-  "recommendations": [
-    {
-      "id": "rec_001",
-      "action": "Increase thread pool size",
-      "target": "api_gateway",
-      "parameters": {
-        "thread_pool_size": 200,
-        "max_threads": 500
-      },
-      "benefit_estimate": "Reduce latency by 20-30% and stabilize thread count deviations"
-    },
-    {
-      "id": "rec_002",
-      "action": "Optimize cache performance",
-      "target": "cache",
-      "parameters": {
-        "cache_eviction_policy": "LRU",
-        "cache_size_mb": 2048
-      },
-      "benefit_estimate": "Improve cache hit ratio by 15-25% and reduce thread contention"
-    },
-    {
-      "id": "rec_003",
-      "action": "Scale horizontally",
-      "target": "api_gateway",
-      "parameters": {
-        "instances": 4,
-        "auto_scaling_enabled": true
-      },
-      "benefit_estimate": "Distribute load and reduce CPU/memory usage by 25-35%"
-    }
-  ],
+  "anomalies": [],
+  "recommendations": [],
   "service_status_summary": {
-    "online": [
-      "api_gateway",
-      "database"
-    ],
-    "degraded": [
-      "cache"
-    ],
+    "online": [],
+    "degraded": [],
     "offline": []
-  }
+  },
+  "remediation_actions": []
 }
